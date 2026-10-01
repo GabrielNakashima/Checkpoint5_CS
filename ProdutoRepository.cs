@@ -14,6 +14,43 @@ namespace AppProdutos.Repositories
         public ProdutoRepository(string connectionString)
         {
             _connectionString = connectionString;
+            CriarTabelaSeNaoExiste();
+        }
+        private void CriarTabelaSeNaoExiste()
+        {
+            try
+            {
+                string query;
+
+                if (File.Exists("script.sql"))
+                {
+                    query = File.ReadAllText("script.sql");
+                }
+                else
+                {
+                    query = @"
+                        CREATE TABLE IF NOT EXISTS Produtos (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            Nome TEXT NOT NULL,
+                            Preco REAL NOT NULL,
+                            Estoque INTEGER NOT NULL,
+                            Categoria TEXT NOT NULL
+                        );";
+                }
+
+                using (var conexao = new SqliteConnection(_connectionString))
+                {
+                    conexao.Open();
+                    using (var comando = new SqliteCommand(query, conexao))
+                    {
+                        comando.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                RegistrarLog($"Erro ao inicializar a tabela no banco de dados: {ex.Message}");
+            }
         }
 
         private void RegistrarLog(string mensagem)
@@ -23,12 +60,12 @@ namespace AppProdutos.Repositories
                 string logMensagem = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {mensagem}\n";
                 File.AppendAllText(_logPath, logMensagem);
             }
-            catch { /* Evita que falha de log quebre a aplicação */ }
+            catch {  }
         }
 
         public void Inserir(Produto produto)
         {
-            string query = "INSERT INTO Produtos (Nome, Preco, Estoque, Categoria) VALUES (@Nome, @Preco, @Estoque, @Categoria)";
+            string query = "INSERT INTO produtos (Nome, Preco, Estoque, Categoria) VALUES (@Nome, @Preco, @Estoque, @Categoria)";
 
             try
             {
