@@ -1,0 +1,19 @@
+2026-09-30 23:29:40 - Erro ao inserir produto: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:33:32 - Erro ao inserir produto: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:35:22 - Erro ao inserir produto: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:35:37 - Erro ao listar produtos: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:35:41 - Erro ao buscar produto por ID 1: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:35:44 - Erro ao buscar produto por ID 1: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:35:47 - Erro ao excluir produto ID 1: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:41:35 - Erro ao inserir produto: SQLite Error 1: 'no such table: Produtos'.
+2026-09-30 23:49:34 - Produto inserido com sucesso: alo
+2026-09-30 23:49:55 - Produto inserido com sucesso: Batata
+2026-09-30 23:50:07 - Produto inserido com sucesso: Camisa
+2026-09-30 23:50:09 - Listagem de produtos realizada com sucesso.
+2026-09-30 23:50:15 - Listagem de produtos realizada com sucesso.
+2026-09-30 23:50:26 - Produto inserido com sucesso: Calça
+2026-09-30 23:50:28 - Listagem de produtos realizada com sucesso.
+2026-09-30 23:50:46 - Produto ID 3 atualizado com sucesso.
+2026-09-30 23:50:53 - Listagem de produtos realizada com sucesso.
+2026-09-30 23:50:57 - Produto ID 3 excluído com sucesso.
+2026-09-30 23:51:00 - Listagem de produtos realizada com sucesso.
